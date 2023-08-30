@@ -2,4 +2,4 @@
 
 ## Running the script
 
-Run `bin/notion-exporter-authenticator > .env`.
+Run `npx -p @ilimic/notion-token-extractor notion-token-extractor > .env`.
