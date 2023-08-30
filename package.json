@@ -2,7 +2,7 @@
   "name": "@ilimic/notion-token-extractor",
   "version": "0.1.0",
   "description": "Extracts tokens from Notion needed to make internal API calls.",
-  "main": "index.js",
+  "main": "build/index.js",
   "bin": "bin/notion-token-extractor",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -16,5 +16,9 @@
   },
   "devDependencies": {
     "@types/node": "^20.5.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ilimic1/notion-token-extractor"
   }
 }
