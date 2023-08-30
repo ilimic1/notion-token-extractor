@@ -20,5 +20,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/ilimic1/notion-token-extractor"
+  },
+  "engines": {
+    "node": ">=20.0.0"
   }
 }
