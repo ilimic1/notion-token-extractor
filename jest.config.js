@@ -4,5 +4,5 @@ module.exports = {
   moduleNameMapper: {
     '../../src/(.*)': '<rootDir>/build/$1',
   },
-  testMatch: ['**/build-tests/**/(*.)+(spec|test).[jt]s?(x)'],
+  testMatch: ['<rootDir>/build-tests/**/(*.)+(spec|test).[jt]s?(x)'],
 };
