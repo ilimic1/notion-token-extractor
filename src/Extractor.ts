@@ -8,7 +8,7 @@ export default class Extractor {
     this.browser = await puppeteer.launch({
       headless: false,
       args: process.env.GITHUB_ACTION ? ['--no-sandbox'] : undefined,
-      executablePath: process.env.PUPPETEER_EXEC_PATH, // set by docker container
+      executablePath: process.env.PUPPETEER_EXEC_PATH, // set by docker container in the CI
     });
     this.page = await this.browser.newPage();
     await this.page.goto('https://www.notion.so/login');
