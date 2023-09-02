@@ -49,6 +49,9 @@ describe('Extractor', () => {
     1 * 60 * 1000
   );
 
+  /**
+   * Make sure jest doesn't hang if our test fails.
+   */
   afterAll(async () => {
     await extractor?.closeBrowser();
   });
