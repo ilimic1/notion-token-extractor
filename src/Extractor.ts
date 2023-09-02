@@ -5,11 +5,19 @@ export default class Extractor {
   private page: Page | null = null;
 
   public async gotoLoginPage() {
-    this.browser = await puppeteer.launch({ headless: false });
+    this.browser = await puppeteer.launch({
+      headless: false,
+      executablePath: process.env.PUPPETEER_EXEC_PATH, // set by docker container
+    });
     this.page = await this.browser.newPage();
     await this.page.goto('https://www.notion.so/login');
   }
 
+  /**
+   * This method is used for testing purposes only.
+   * This method sometimes fails because Notion randomly sends a login code via email and refuses to accept the actual password.
+   * When headless Chrome is used notion always sends a login code via email, when non-headless Chrome is used it sometimes sends a login code via email.
+   */
   public async login(email: string, password: string) {
     if (this.page === null) {
       throw new Error('Page is null.');

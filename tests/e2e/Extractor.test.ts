@@ -20,12 +20,20 @@ describe('Extractor', () => {
     'should extract valid token_v2 and file_token from cookies',
     async () => {
       const extractor = new Extractor();
+
+      console.debug('Running extractor.gotoLoginPage()');
       await extractor.gotoLoginPage();
 
+      console.debug('Running extractor.login()');
       await extractor.login(testsEmail, testsPass);
 
+      console.debug('Running extractor.waitForDashboard()');
       await extractor.waitForDashboard();
+
+      console.debug('Running extractor.getTokens()');
       const { tokenV2, fileToken } = await extractor.getTokens();
+
+      console.debug('Running extractor.closeBrowser()');
       await extractor.closeBrowser();
 
       expect(typeof tokenV2).toBe('string');
@@ -33,8 +41,6 @@ describe('Extractor', () => {
 
       expect(typeof fileToken).toBe('string');
       expect(fileToken).not.toBe('');
-
-      // todo: make a request to notion and check if the tokens are valid
     },
     1 * 60 * 1000
   );
