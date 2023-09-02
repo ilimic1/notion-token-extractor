@@ -1,7 +1,7 @@
 {
   "name": "@ilimic/notion-token-extractor",
   "version": "0.3.1",
-  "description": "Extracts tokens from Notion needed to make internal API calls.",
+  "description": "Extracts Notion tokens needed to make internal API calls.",
   "main": "build/index.js",
   "bin": "bin/notion-token-extractor",
   "scripts": {
