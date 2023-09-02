@@ -48,9 +48,6 @@ describe('Extractor', () => {
   );
 
   afterAll(async () => {
-    if (extractor === null) {
-      return;
-    }
-    await extractor.closeBrowser();
+    await extractor?.closeBrowser();
   });
 });
