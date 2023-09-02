@@ -15,11 +15,13 @@ if (typeof process.env.TESTS_NOTION_PASS !== 'string') {
 }
 const testsPass = process.env.TESTS_NOTION_PASS;
 
+let extractor: Extractor | null = null;
+
 describe('Extractor', () => {
   it(
     'should extract valid token_v2 and file_token from cookies',
     async () => {
-      const extractor = new Extractor();
+      extractor = new Extractor();
 
       console.debug('Running extractor.gotoLoginPage()');
       await extractor.gotoLoginPage();
@@ -44,4 +46,11 @@ describe('Extractor', () => {
     },
     1 * 60 * 1000
   );
+
+  afterAll(async () => {
+    if (extractor === null) {
+      return;
+    }
+    await extractor.closeBrowser();
+  });
 });
