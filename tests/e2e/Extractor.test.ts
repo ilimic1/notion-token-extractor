@@ -38,11 +38,13 @@ describe('Extractor', () => {
       console.debug('Running extractor.closeBrowser()');
       await extractor.closeBrowser();
 
-      expect(typeof tokenV2).toBe('string');
-      expect(tokenV2).not.toBe('');
+      // pay attention to not reveal the tokens in the CI logs
+      const tokenV2IsValid = typeof tokenV2 === 'string' && tokenV2 !== '';
+      const fileTokenIsValid =
+        typeof fileToken === 'string' && fileToken !== '';
 
-      expect(typeof fileToken).toBe('string');
-      expect(fileToken).not.toBe('');
+      expect(tokenV2IsValid).toBe(true);
+      expect(fileTokenIsValid).toBe(true);
     },
     1 * 60 * 1000
   );
