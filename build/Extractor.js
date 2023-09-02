@@ -10,6 +10,7 @@ class Extractor {
     async gotoLoginPage() {
         this.browser = await puppeteer_1.default.launch({
             headless: false,
+            args: process.env.GITHUB_ACTION ? ['--no-sandbox'] : undefined,
             executablePath: process.env.PUPPETEER_EXEC_PATH, // set by docker container
         });
         this.page = await this.browser.newPage();
